@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jasonwjones.jolo</groupId>
+  <artifactId>jolo</artifactId>
+  <version>0.9.0</version>
+  <name>Jolo Simple Java Table Printing Library</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.11</version>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+  <description>Jolo is a very simple Java ASCII table printing library with a sensible API and no dependencies. Its focus is on providing an incredibly simple, yet useful API that Just Does The Right Thing and doesn't pollute the code of callers.</description>
+  <inceptionYear>January 7, 2013</inceptionYear>
+  <url>http://www.jasonwjones.com/projects/jolo</url>
+</project>
