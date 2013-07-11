@@ -37,7 +37,6 @@ public class TablePrinterTest {
 	public void testPrintTableWithColumns() {
 		TableColumnList tcl = new TableColumnList.Builder().add("Name", 40).add("City", 15).add("State", 2).build();
 		Iterable<List<? extends Object>> data = createRandomRows(10, 3);
-
 		tp.outputTable(tcl, data);
 	}
 
