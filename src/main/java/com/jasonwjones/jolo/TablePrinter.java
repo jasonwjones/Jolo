@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
-public class TablePrinter {
+public class TablePrinter extends AbstractTablePrinter {
 
 	private TablePrinterOptions printOptions = new DefaultTablePrinterOptions();
 
@@ -45,41 +45,6 @@ public class TablePrinter {
 		if (!printOptions.isPrintRowSeparator()) {
 			printStream.println(rowSeparator);
 		}
-	}
-
-	private String rowForValues(TableColumnList tableColumns, List<? extends Object> values) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("|");
-
-		for (int index = 0; index < tableColumns.size(); index++) {
-			Object value = values.get(index);
-			int length = tableColumns.get(index).getWidth();
-			String padded = StringUtils.fix(value.toString(), length);
-			sb.append(padded);
-			sb.append("|");
-		}
-		return sb.toString();
-	}
-
-	private String createRowSeparator(int[] lengths) {
-		String[] segments = new String[lengths.length];
-		for (int index = 0; index < lengths.length; index++) {
-			segments[index] = StringUtils.repeat("-", lengths[index]);
-		}
-		return StringUtils.join(segments, "+", "+", "+");
-	}
-
-	private String rowSeparator(TableColumnList columns) {
-		StringBuilder sb = new StringBuilder("+");
-		for (int index = 0; index < columns.size(); index++) {
-			TableColumn column = columns.get(index);
-			sb.append(StringUtils.repeat("-", column.getWidth()));
-			if (index < columns.size() - 1) {
-				sb.append("+");
-			}
-		}
-		sb.append("+");
-		return sb.toString();
 	}
 
 }

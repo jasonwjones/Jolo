@@ -1,7 +1,21 @@
 package com.jasonwjones.jolo;
 
+/**
+ * Collection of some primitive utilties ot help process strings.
+ * 
+ * @author jasonwjones
+ *
+ */
 public class StringUtils {
 
+	/**
+	 * Repeats a given character a certain number of times.
+	 * 
+	 * @param character the character to repeat
+	 * @param times the number of times to repeat the character
+	 * @return a String with the given character repeated the given number of
+	 *         times
+	 */
 	public static String repeat(char character, int times) {
 		return repeat(String.valueOf(character), times);
 	}
@@ -15,7 +29,8 @@ public class StringUtils {
 	}
 
 	public static String pad(String input, int length) {
-		if (input.length() > length) throw new IllegalArgumentException("Input string is longer than length.");
+		if (input.length() > length)
+			throw new IllegalArgumentException("Input string is longer than length.");
 		return input + repeat(" ", length - input.length());
 	}
 
@@ -37,7 +52,8 @@ public class StringUtils {
 	}
 
 	public static String join(String[] strings, String delimiter) {
-		if (strings.length == 1) return strings[0];
+		if (strings.length == 1)
+			return strings[0];
 		StringBuilder sb = new StringBuilder();
 
 		for (int index = 0; index < strings.length - 1; index++) {
@@ -49,7 +65,8 @@ public class StringUtils {
 	}
 
 	/**
-	 * Convenience method with a dirty, dirty, dirty implementation. Sorry programming gods.
+	 * Convenience method with a dirty, dirty, dirty implementation. Sorry
+	 * programming gods.
 	 * 
 	 * @param text
 	 * @param width
