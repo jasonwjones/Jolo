@@ -4,10 +4,25 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
+/**
+ * Main class for printing tables.
+ * 
+ * @author jasonwjones
+ *
+ */
 public class TablePrinter extends AbstractTablePrinter {
 
 	private TablePrinterOptions printOptions = new DefaultTablePrinterOptions();
 
+	private final static CharacterMap DEFAULT_CHAR_MAP = new DefaultCharacterMap();
+
+	/**
+	 * Convenience method that calls the other output method but supplies
+	 * <code>System.out</code> as the output target.
+	 * 
+	 * @param columns the column definition
+	 * @param data the input data to print out
+	 */
 	public void outputTable(TableColumnList columns, Iterable<List<? extends Object>> data) {
 		outputTable(columns, data, System.out);
 	}
@@ -26,8 +41,29 @@ public class TablePrinter extends AbstractTablePrinter {
 		return baos.toString();
 	}
 
+	/**
+	 * Print a table.
+	 * 
+	 * @param columns the column definition
+	 * @param data the rows of data
+	 * @param printStream the print stream
+	 */
 	public void outputTable(TableColumnList columns, Iterable<List<? extends Object>> data, PrintStream printStream) {
-		String rowSeparator = createRowSeparator(columns.getColumnLengths());
+		outputTable(columns, data, printStream, DEFAULT_CHAR_MAP);
+	}
+
+	/**
+	 * Prints a table. This is the full invocation if needed to provide maximum
+	 * flexibility.
+	 * 
+	 * @param columns the column definition
+	 * @param data the rows of data
+	 * @param printStream the print stream
+	 * @param charMap the character map
+	 */
+	public void outputTable(TableColumnList columns, Iterable<List<? extends Object>> data, PrintStream printStream,
+			CharacterMap charMap) {
+		String rowSeparator = createRowSeparator(columns.getColumnLengths(), charMap);
 		String rowForHeaders = rowForValues(columns, columns.getHeaders());
 
 		printStream.println(rowSeparator);

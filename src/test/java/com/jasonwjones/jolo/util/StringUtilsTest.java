@@ -1,9 +1,11 @@
-package com.jasonwjones.jolo;
+package com.jasonwjones.jolo.util;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.jasonwjones.jolo.util.StringUtils;
 
 public class StringUtilsTest {
 

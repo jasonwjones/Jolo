@@ -4,13 +4,22 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
+import com.jasonwjones.jolo.util.StringUtils;
+
+/**
+ * Table printer implementation that prints out a JDBC {@link ResultSet}
+ * @author jasonwjones
+ *
+ */
 public class ResultSetTablePrinter extends AbstractTablePrinter {
 
+	private static final CharacterMap characterMap = new DefaultCharacterMap();
+	
 	public void printResultSet(ResultSet rs) throws SQLException {
 		
 		TableColumnList columns = createTableColumnList(rs.getMetaData());
 		
-		String rowSeparator = createRowSeparator(columns.getColumnLengths());
+		String rowSeparator = createRowSeparator(columns.getColumnLengths(), characterMap);
 		String rowForHeaders = rowForValues(columns, columns.getHeaders());
 
 		System.out.println(rowSeparator);

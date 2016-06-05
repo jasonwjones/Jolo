@@ -7,14 +7,31 @@ package com.jasonwjones.jolo;
  * @author Jason W. Jones
  * 
  */
-public class DefaultCharacterMap {
+public class DefaultCharacterMap implements CharacterMap {
 
-	public enum Pieces {
-		TOP_LEFT_CORNER, TOP_RIGHT_CORNER, BOTTOM_LEFT_CORNER, BOTTOM_RIGHT_CORNER, EDGE_DOWN, EDGE_RIGHT, EDGE_UP, EDGE_LEFT, EDGE_HORIZONTAL, EDGE_VERTICAL, INNER_CONNECTOR
-	}
-
+	@Override
 	public char getCharacter(Pieces piece) {
-		return '-';
+		switch (piece) {
+		case BOTTOM_CONNECTOR:
+		case BOTTOM_LEFT_CORNER:
+		case BOTTOM_RIGHT_CORNER:
+		case INNER_CONNECTOR:
+		case LEFT_CONNECTOR:
+		case RIGHT_CONNECTOR:
+		case TOP_CONNECTOR:
+		case TOP_LEFT_CORNER:
+		case TOP_RIGHT_CORNER:
+			return '+';
+		case INNER_VERTICAL_EDGE:
+		case RIGHT_EDGE:
+		case LEFT_EDGE:
+			return '|';
+		case INNER_HORIZONTAL_EDGE:
+		case BOTTOM_EDGE:
+		case TOP_EDGE:
+		default:
+			return '-';
+		}
 	}
 
 }

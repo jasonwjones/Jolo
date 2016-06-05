@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Models the columns that will be printed in a table.
+ * 
+ * @author jasonwjones
+ *
+ */
 public class TableColumnList {
 
 	private static final int DEFAULT_WIDTH = 30;

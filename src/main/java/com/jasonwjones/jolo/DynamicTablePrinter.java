@@ -3,6 +3,8 @@ package com.jasonwjones.jolo;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jasonwjones.jolo.util.StringUtils;
+
 public class DynamicTablePrinter {
 
 	protected List<String> getAllTableValues(GridDataSource dataSource) {
