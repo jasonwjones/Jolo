@@ -31,7 +31,7 @@
 
 	<scm>
 		<connection>scm:git:git@github.com:jasonwjones/Jolo.git</connection>
-		<developerConnection>scm:git:git@github.com:jasonwjones/Jolo.git</developerConnection>
+		<developerConnection>scm:git:ssh@github.com:jasonwjones/Jolo.git</developerConnection>
 		<url>git@github.com:jasonwjones/Jolo.git</url>
 		<tag>HEAD</tag>
 	</scm>
